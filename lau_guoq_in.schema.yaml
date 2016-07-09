@@ -9,7 +9,7 @@ schema:
     - 耶箍步<@iacobvs>
   description: |
    	基於前中華民國教育部《校改國音字典》的老國音輸入法。
-    由iacobvs設計方案並參考其凡例作出修改。
+   	由iacobvs設計方案並參考其凡例作出修改。
     
     
   dependencies:
