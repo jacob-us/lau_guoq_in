@@ -1,0 +1,78 @@
+# Rime schema
+# encoding: utf-8
+
+schema:
+  schema_id: lau_guoq_in
+  name: 老國音
+  version: "2016/07/07"
+  author:
+    - 耶箍步<@iacobvs>
+  description: |
+   	基於前中華民國教育部《校改國音字典》的老國音輸入法。
+    由iacobvs設計方案並參考其凡例作出修改。
+    
+    
+  dependencies:
+    - luna_pinyin
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 漢字, 辣丁 ]
+  - name: half_shape
+    states: [ 全角, 半角 ]
+  - name: ascii_punct
+    states: [ ，。, ，． ]
+  - name: simplification
+    states: [ 正體, 规范 ]
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - script_translator
+    - reverse_lookup_translator
+  filters:
+    - simplifier
+    - uniquifier
+
+speller:
+  alphabet: zyxwvutsrqponmlkjihgfedcba
+  delimiter: " '"
+  
+  algebra:
+    - abbrev/^([a-z]).+$/$1/
+
+translator:
+  dictionary: lau_guoq_in
+  
+reverse_lookup:
+  dictionary: luna_pinyin
+  prefix: "`"
+  suffix: "'"
+  tips: 〔拼音〕
+
+punctuator:
+  import_preset: default
+
+key_binder:
+  import_preset: default
+
+recognizer:
+  import_preset: default
+  patterns:
+    reverse_lookup: "`[a-z]*'?$"
