@@ -19,12 +19,12 @@ switches:
   - name: ascii_mode
     reset: 0
     states: [ 漢字, 辣丁 ]
-  - name: half_shape
-    states: [ 全角, 半角 ]
+  - name: full_shape
+    states: [ 半角, 全角 ]
   - name: ascii_punct
     states: [ ，。, ，． ]
   - name: simplification
-    states: [ 正體, 规范 ]
+    states: [ 正體, 規範 ]
 
 engine:
   processors:
@@ -52,13 +52,14 @@ engine:
     - uniquifier
 
 speller:
-  alphabet: 'zyxvutsrqponmlkjihgfedcba-;/<,>\'
-  initials: zyxvutsrqponmlkjihgfedcba
+  alphabet: 'zyxwvutsrqponmlkjihgfedcba-;/<,>\'
+  initials: zyxwvutsrqponmlkjihgfedcba
   delimiter: " '"
   algebra:
     - erase/^xx$/
+    - xform/^r5$/er5/
+    - derive/([aeiou])ng/$1gn/
     - derive/^([a-z]+)[0-5]$/$1/
-    - derive/ong$/on/
     - 'erase/^.*5$/'
     - 'xlit 1234 -/<\'
     - 'derive/^(.*)-$/$1;/'
@@ -69,13 +70,8 @@ translator:
   dictionary: lau_guoq_in
   spelling_hints: 5
   preedit_format:
-    - xform/([jqxzcsnl])y/$1ü/
-    - xform/([jqxzcsnl])yeq/$1üeq/
-    - xform/([jqxnl])yoq/$1üoq/
-    - xform/([jqxzcsnl])yeq/$1üeq/
-    - xform/y/$1ü/
     - 'xform ([aeiou])(ng?|r)([-;/<,>\\]) $1$3$2'
-    - 'xform ([aeo])([iuo])([-;/<,>\\]) $1$3$2'
+    - 'xform ([aeoy])([iuo])([-;/<,>\\]) $1$3$2'
     - 'xform a[-;] ā'
     - 'xform a/ á'
     - 'xform a[<,] ǎ'
@@ -96,13 +92,14 @@ translator:
     - 'xform u/ ú'
     - 'xform u[<,] ǔ'
     - 'xform u[>\\] ù'
-    - 'xform ü[-;] ǖ'
-    - 'xform ü/ ǘ'
-    - 'xform ü[<,] ǚ'
-    - 'xform ü[>\\] ǜ'
+    - 'xform y[-;] ȳ'
+    - 'xform y/ ý'
+    - 'xform y[<,] ỹ'
+    - 'xform y[>\\] ỳ'
+    
   comment_format:
     - xform ([aeiou])(ng?|r)([1234]) $1$3$2
-    - xform ([aeo])([iuo])([1234]) $1$3$2
+    - xform ([aeoy])([iuo])([1234]) $1$3$2
     - xform a1 ā
     - xform a2 á
     - xform a3 ǎ
@@ -123,10 +120,10 @@ translator:
     - xform u2 ú
     - xform u3 ǔ
     - xform u4 ù
-    - xform y1 ǖ
-    - xform y2 ǘ
-    - xform y3 ǚ
-    - xform y4 ǜ
+    - xform y1 ȳ
+    - xform y2 ý
+    - xform y3 ỹ
+    - xform y4 ỳ
     - xform/([a-z]+)[0-5]/$1/
 
 custom_phrase:
@@ -147,7 +144,7 @@ reverse_lookup:
     - xlit/hspnz/一丨丿丶乙/
   comment_format:
     - xform ([aeiou])(ng?|r)([1234]) $1$3$2
-    - xform ([aeo])([iuo])([1234]) $1$3$2
+    - xform ([aeoy])([iuo])([1234]) $1$3$2
     - xform a1 ā
     - xform a2 á
     - xform a3 ǎ
@@ -168,11 +165,10 @@ reverse_lookup:
     - xform u2 ú
     - xform u3 ǔ
     - xform u4 ù
-    - xform y1 ǖ
-    - xform y2 ǘ
-    - xform y3 ǚ
-    - xform y4 ǜ
-    - xform/([nljqx])v/$1ü/
+    - xform y1 ȳ
+    - xform y2 ý
+    - xform y3 ỹ
+    - xform y4 ỳ
     - xform/([a-z]+)[0-5]/$1/
 
 punctuator:
