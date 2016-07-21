@@ -3,14 +3,14 @@
 
 schema:
   schema_id: lau_guoq_in
-  name: 老國音
-  version: "2016/07/07"
+  name: iacobvs老國音
+  version: "2016/07/21"
   author:
     - 耶箍步<@iacobvs>
   description: |
-   	基於前中華民國教育部《校改國音字典》的老國音輸入法。
-   	由iacobvs設計方案並參考其凡例作出修改。
-    
+   	基於前中華民國教育部頒行《校改國音字典》的老國音輸入法。
+    由iacobvs設計方案並參考其凡例作出修改。
+    感謝叔寍、涉江、玄簡、帥喵幫助錄入大量字頭。
     
   dependencies:
     - luna_pinyin
@@ -53,7 +53,6 @@ engine:
 speller:
   alphabet: zyxwvutsrqponmlkjihgfedcba
   delimiter: " '"
-  
   algebra:
     - abbrev/^([a-z]).+$/$1/
 
