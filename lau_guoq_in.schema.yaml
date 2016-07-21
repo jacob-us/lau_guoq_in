@@ -59,6 +59,7 @@ speller:
   use_space: true
   algebra:
     - erase/^xx$/
+    - abbrev/^([a-z]).+$/$1/
     - 'erase/^.*5$/'
     - 'xlit 1234 4567'
     - derive/^([a-z]+)[0-5]$/$1/
@@ -67,69 +68,42 @@ translator:
   dictionary: lau_guoq_in
   spelling_hints: 5
   preedit_format:
-    - 'xform ([aeiou])(ng?|r)([3467]) $1$3$2'
-    - 'xform ([aeoy])([iuo])([3467]) $1$3$2'
     - 'xform a4 a陰'
     - 'xform a5 a陽'
-    - 'xform a6 a賞'
+    - 'xform a6 a上'
     - 'xform a7 a去'
+    - 'xform aq aq入'
     - 'xform e4 e陰'
     - 'xform e5 e陽'
-    - 'xform e6 e賞'
+    - 'xform e6 e上'
     - 'xform e7 e去'
+    - 'xform eq eq入'
     - 'xform o4 o陰'
     - 'xform o5 o陽'
-    - 'xform o6 o賞'
+    - 'xform o6 o上'
     - 'xform o7 o去'
+    - 'xform oq oq入'
     - 'xform i4 i陰'
     - 'xform i5 i陽'
-    - 'xform i6 i賞'
+    - 'xform i6 i上'
     - 'xform i7 i去'
+    - 'xform iq iq入'
     - 'xform u4 u陰'
     - 'xform u5 u陽'
-    - 'xform u6 u賞'
+    - 'xform u6 u上'
     - 'xform u7 u去'
+    - 'xform uq uq入'
     - 'xform y4 y陰'
     - 'xform y5 y陽'
-    - 'xform y6 y賞'
+    - 'xform y6 y上'
     - 'xform y7 y去'
+    - 'xform yq yq入'
     - 'xform w4 w陰'
     - 'xform w5 w陽'
-    - 'xform w6 w賞'
-    - 'xform w7 w去'  
-    - "xlit|4567|陰陽賞去|"
-  comment_format:
-    - xform ([aeiou])(ng?|r)([1234]) $1$3$2
-    - xform ([aeoy])([iuo])([1234]) $1$3$2
-    - xform a1 a陰
-    - xform a2 a陽
-    - xform a3 a賞
-    - xform a4 a去
-    - xform e1 e陰
-    - xform e2 e陽
-    - xform e3 e賞
-    - xform e4 e去
-    - xform o1 o陰
-    - xform o2 o陽
-    - xform o3 o賞
-    - xform o4 o去
-    - xform i1 i陰
-    - xform i2 i陽
-    - xform i3 i賞
-    - xform i4 i去
-    - xform u1 u陰
-    - xform u2 u陽
-    - xform u3 u賞
-    - xform u4 u去
-    - xform y1 y陰
-    - xform y2 y陽
-    - xform y3 y賞
-    - xform y4 y去
-    - xform w1 w陰
-    - xform w2 w陽
-    - xform w3 w賞
-    - xform w4 w去 
-    - xform/([a-z]+)[0-5]/$1/
+    - 'xform w6 w上'
+    - 'xform w7 w去'
+    - 'xform wq wq入'
+    - "xlit|4567|陰陽上去|"
 
 custom_phrase:
   dictionary: ""
@@ -147,38 +121,6 @@ reverse_lookup:
   tips: 〔筆畫〕
   preedit_format:
     - xlit/hspnz/一丨丿丶乙/
-  comment_format:
-    - xform ([aeiou])(ng?|r)([1234]) $1$3$2
-    - xform ([aeoy])([iuo])([1234]) $1$3$2
-    - xform a1 a陰
-    - xform a2 a陽
-    - xform a3 a賞
-    - xform a4 a去
-    - xform e1 e陰
-    - xform e2 e陽
-    - xform e3 e賞
-    - xform e4 e去
-    - xform o1 o陰
-    - xform o2 o陽
-    - xform o3 o賞
-    - xform o4 o去
-    - xform i1 i陰
-    - xform i2 i陽
-    - xform i3 i賞
-    - xform i4 i去
-    - xform u1 u陰
-    - xform u2 u陽
-    - xform u3 u賞
-    - xform u4 u去
-    - xform y1 y陰
-    - xform y2 y陽
-    - xform y3 y賞
-    - xform y4 y去
-    - xform w1 w陰
-    - xform w2 w陽
-    - xform w3 w賞
-    - xform w4 w去 
-    - xform/([a-z]+)[0-5]/$1/
 
 punctuator:
   full_shape:
